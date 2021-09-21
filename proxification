@@ -15,8 +15,6 @@ iptables -t nat -A PREROUTING -p tcp -d 192.168.0.0/16 -j ACCEPT
 iptables -t nat -A PREROUTING -p tcp -j REDIRECT --to-ports 8124
 
 # run socksifier
-chmod +x redsocks
-chmod +x redsocks64
 bit=`getconf LONG_BIT`
 if [ "$bit" = "64" ];then
 	chmod +x redsocks
