@@ -9,11 +9,9 @@ iptables -t nat -A REDSOCKS -d 127.0.0.0/8 -j ACCEPT
 iptables -t nat -A REDSOCKS -d 169.254.0.0/16 -j ACCEPT
 iptables -t nat -A REDSOCKS -d 172.16.0.0/12 -j ACCEPT
 iptables -t nat -A REDSOCKS -d 192.168.0.0/16 -j ACCEPT
-iptables -t nat -A REDSOCKS -p tcp -j REDIRECT --to-ports 8123
 iptables -t nat -A REDSOCKS -p tcp -j REDIRECT --to-ports 8124
 iptables -t nat -A OUTPUT -p tcp -j REDSOCKS
 iptables -t nat -A PREROUTING -p tcp -d 192.168.0.0/16 -j ACCEPT
-iptables -t nat -A PREROUTING -p tcp -j REDIRECT --to-ports 8123
 iptables -t nat -A PREROUTING -p tcp -j REDIRECT --to-ports 8124
 
 # run socksifier
